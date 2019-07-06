@@ -1,0 +1,21 @@
+//css offer bootstrap
+
+.nav-bg {
+    background: #2684c9;
+}
+
+
+.margin-top-20{
+
+  margin-top: 20px
+}
+.feature-img{
+
+  max-height: 200px
+}
+
+.footer-bottom{
+  padding: 10px;
+  margin-top: 200px;
+  background :#2684C9;
+}
