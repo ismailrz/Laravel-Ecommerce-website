@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-
+use App\Image;
 class AdminPagesController extends Controller
 {
     /**
@@ -48,6 +48,54 @@ class AdminPagesController extends Controller
         $product->brand_id = 1;
         $product->admin_id = 1;
         $product->save();
+
+
+        // if($request->hasFile('image')){
+        //   //insert image into location
+        //
+        //  $image = $request->file('image');
+        //   $Location_Image = time().'.'.$image->getClientOriginalExtension();
+        //   $location = public_path('Images/Products'.$Location_Image);
+        //   Image::make($image)->save($location);
+
+          if($request->hasFile('image'))
+                  {
+                      $image = $request->file('image');
+                      $filename = time() . '.'. $image->getClientOriginalExtension();
+
+                      $path = public_path('Images/Products');
+                      $imagepath = $request->image->move($path, $filename);
+                    //  $post->image = $imagepath;
+
+                //  }
+          //insert image into Database
+
+          $product_Image = new Image;
+          $product_Image->product_id = $product->id;
+          $product_Image->image = $filename ;
+          $product_Image->save();
+
+        }
+
+        // if(count($request->image)>0){
+        //   foreach ($request->image as $image) {
+        //
+        //       //insert image into location
+        //     //  $image = $request->file('image');
+        //
+        //       $Location_Image = time().'.'.$image->getClientOriginalExtension();
+        //       $location = public_path('Images/Products'.$Location_Image);
+        //       Image::make($image)->save($location);
+        //       $image->image = $request->image->store('public/images');
+        //
+        //
+        //       $product_Image = new Image;
+        //       $product_Image->product_id = $product->id;
+        //       $product_Image->image = $Location_Image ;
+        //       $product_Image->save();
+        //
+        //   }
+        // }
 
         return redirect()->Route('admin.product.create');
     }

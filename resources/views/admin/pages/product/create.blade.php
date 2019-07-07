@@ -28,6 +28,21 @@
             <label for="exampleInputEmail1">Quantity</label>
             <input type="number" class="form-control" id="exampleInputEmail1"name="quantity" aria-describedby="emailHelp" placeholder="Enter quantity">
           </div>
+
+
+              <div class="form-group">
+                <label for="exampleInputImage">Product Image</label>
+                <div class="row">
+                  <div class="col-md-4">
+                <input type="file" class="form-control" id="exampleInputImage" name="image" >
+                <!-- <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
+                <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
+                <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
+                <input type="file" class="form-control" id="exampleInputImage" name="image[]" > -->
+              </div>
+            </div>
+
+          </div>
           <button type="submit" class="btn btn-primary">Add Product</button>
         </form>
       </div>
