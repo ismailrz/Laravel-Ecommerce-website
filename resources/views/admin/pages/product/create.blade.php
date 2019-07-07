@@ -12,6 +12,9 @@
         <form action="{{ Route('admin.product.store')}}" method="post" enctype="multipart/form-data">
 
           {{ csrf_field() }}
+
+          @include('admin.partials.message')
+          
           <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input type="text" class="form-control" id="exampleInputEmail1"name="title" aria-describedby="emailHelp" placeholder="Enter title">
@@ -34,11 +37,11 @@
                 <label for="exampleInputImage">Product Image</label>
                 <div class="row">
                   <div class="col-md-4">
-                <input type="file" class="form-control" id="exampleInputImage" name="image" >
-                <!-- <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
                 <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
                 <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
-                <input type="file" class="form-control" id="exampleInputImage" name="image[]" > -->
+                <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
+                <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
+                <input type="file" class="form-control" id="exampleInputImage" name="image[]" >
               </div>
             </div>
 

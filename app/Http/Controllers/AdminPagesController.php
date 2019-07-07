@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App\Image;
+use App\Product_Image;
+use Image;
 class AdminPagesController extends Controller
 {
     /**
@@ -35,6 +36,13 @@ class AdminPagesController extends Controller
      */
     public function product_store(Request $request)
     {
+        $request->validate([
+            'title'         => 'required|max:150',
+            'description'     => 'required',
+            'price'             => 'required|numeric',
+            'quantity'             => 'required|numeric',
+        ]);
+
         $product = New Product;
 
         $product->title = $request->title;
@@ -50,55 +58,48 @@ class AdminPagesController extends Controller
         $product->save();
 
 
-        // if($request->hasFile('image')){
-        //   //insert image into location
-        //
-        //  $image = $request->file('image');
-        //   $Location_Image = time().'.'.$image->getClientOriginalExtension();
-        //   $location = public_path('Images/Products'.$Location_Image);
+        //ProductImage Model insert  single image
+
+        // if ($request->hasFile('product_image')) {
+        //   //insert that image
+        //   $image = $request->file('product_image');
+        //   $img = time() . '.'. $image->getClientOriginalExtension();
+        //   $location = public_path('images/products/' .$img);
         //   Image::make($image)->save($location);
-
-          if($request->hasFile('image'))
-                  {
-                      $image = $request->file('image');
-                      $filename = time() . '.'. $image->getClientOriginalExtension();
-
-                      $path = public_path('Images/Products');
-                      $imagepath = $request->image->move($path, $filename);
-                    //  $post->image = $imagepath;
-
-                //  }
-          //insert image into Database
-
-          $product_Image = new Image;
-          $product_Image->product_id = $product->id;
-          $product_Image->image = $filename ;
-          $product_Image->save();
-
-        }
-
-        // if(count($request->image)>0){
-        //   foreach ($request->image as $image) {
         //
-        //       //insert image into location
-        //     //  $image = $request->file('image');
-        //
-        //       $Location_Image = time().'.'.$image->getClientOriginalExtension();
-        //       $location = public_path('Images/Products'.$Location_Image);
-        //       Image::make($image)->save($location);
-        //       $image->image = $request->image->store('public/images');
-        //
-        //
-        //       $product_Image = new Image;
-        //       $product_Image->product_id = $product->id;
-        //       $product_Image->image = $Location_Image ;
-        //       $product_Image->save();
-        //
-        //   }
+        //   $product_image = new ProductImage;
+        //   $product_image->product_id = $product->id;
+        //   $product_image->image = $img;
+        //   $product_image->save();
         // }
 
-        return redirect()->Route('admin.product.create');
+        // Multiple Image Insert into Database
+        
+        if (count($request->image) > 0) {
+            foreach ($request->image as $image) {
+
+                //insert that image
+                //$image = $request->file('product_image');
+
+                // Insert into storage
+                $img = time() . '.'. $image->getClientOriginalExtension();
+                $location = public_path('images/products/' .$img);
+                Image::make($image)->save($location);
+
+
+                  //Insert into table
+                $product_image = new Product_Image;
+
+                $product_image->product_id = $product->id;
+                $product_image->image = $img;
+                $product_image->save();
+
+            }
+        }
+
+        return redirect()->route('admin.product.create');
     }
+
 
     /**
      * Display the specified resource.
