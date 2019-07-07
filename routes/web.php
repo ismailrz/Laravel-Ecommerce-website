@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+Route::get('/','PagesController@index')->name('index');
+Route::get('/contact','PagesController@contact')->name('contact');
+Route::get('/product','PagesController@product')->name('product');
