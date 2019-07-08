@@ -11,27 +11,27 @@
 |
 */
 
-Route::get('/','PagesController@index')->name('index');
-Route::get('/contact','PagesController@contact')->name('contact');
-Route::get('/product','PagesController@product')->name('product');
+Route::get('/','FrontEnd\PagesController@index')->name('index');
+Route::get('/contact','FrontEnd\PagesController@contact')->name('contact');
+Route::get('/product','FrontEnd\PagesController@product')->name('product');
 
-  //Admin Route
+  //Admin Route ALL Admin
+
 Route::group([ 'prefix' => 'admin' ], function()
 {
-  Route::get('/','AdminPagesController@index')->name('admin.index');
+  Route::get('/','FrontEnd\PagesController@index')->name('admin.index');
 
   //product Route
 
   Route::group([ 'prefix' => 'product' ], function()
   {
-  Route::get('/','AdminProductController@index')->name('admin.product');
-  Route::get('/create','AdminProductController@create')->name('admin.product.create');
-  Route::get('/edit/{id}','AdminProductController@edit')->name('admin.product.edit');
+  Route::get('/','BackEnd\ProductsController@index')->name('admin.product');
+  Route::get('/create','BackEnd\ProductsController@create')->name('admin.product.create');
+  Route::get('/edit/{id}','BackEnd\ProductsController@edit')->name('admin.product.edit');
 
-
-  Route::post('/store','AdminProductController@store')->name('admin.product.store');
-  Route::post('/update/{id}','AdminProductController@update')->name('admin.product.update');
-  Route::post('/delete/{id}','AdminProductController@delete')->name('admin.product.delete');
+  Route::post('/store','BackEnd\ProductsController@store')->name('admin.product.store');
+  Route::post('/update/{id}','BackEnd\ProductsController@update')->name('admin.product.update');
+  Route::post('/delete/{id}','BackEnd\ProductsController@delete')->name('admin.product.delete');
   });
 });
 

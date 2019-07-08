@@ -1,41 +1,47 @@
 <?php
 
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers\BackEnd;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Product;
-use App\Product_Image;
+use App\Models\Product;
+use App\Models\Product_Image;
 use Image;
-class AdminProductController extends Controller
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        return view('BackEnd.pages.index');
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function product_manage()
     {
         $product = Product::OrderBy('id','desc')->get();
-        return view('admin.pages.product.index')->with('products',$product);
+        return view('BackEnd.pages.product.index')->with('products',$product);
     }
 
 
-    public function edit($id)
+    public function product_edit($id)
     {
         $product = Product::find($id);
-        return view('admin.pages.product.edit')->with('product',$product);
+        return view('BackEnd.pages.product.edit')->with('product',$product);
     }
 
 
-    public function create()
+    public function product_create()
     {
-        return view('admin.pages.product.create');
+        return view('BackEnd.pages.product.create');
     }
 
     /**
@@ -44,7 +50,7 @@ class AdminProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function product_store(Request $request)
     {
         $request->validate([
             'title'         => 'required|max:150',
@@ -110,7 +116,7 @@ class AdminProductController extends Controller
         return redirect()->route('admin.product');
     }
 
-    public function update(Request $request, $id)
+    public function product_update(Request $request, $id)
     {
         $request->validate([
             'title'         => 'required|max:150',
@@ -194,6 +200,10 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function edit($id)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
@@ -202,7 +212,10 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -210,14 +223,8 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $product = Product::find($id);
-
-        if(!is_null($product)){
-        $product->delete();
+        //
     }
-    Session()->flash('success','Product has deleted successfully!!');
-    return back();
-  }
 }

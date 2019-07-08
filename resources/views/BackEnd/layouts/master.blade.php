@@ -201,7 +201,7 @@
   <!-- plugins:js -->
 
   <!-- java scriopt  -->
-  @include('partials.scripts')
+  @include('FrontEnd.partials.scripts')
 
   <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>

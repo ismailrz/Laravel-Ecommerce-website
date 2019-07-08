@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\FrontEnd;
 
+use App\Http\Controllers\controller;
 use Illuminate\Http\Request;
-use App\Product;
-use App\Image;
-class PagesController extends Controller
+use App\Models\Product;
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,17 @@ class PagesController extends Controller
      */
     public function index()
     {
-        return view('pages.index');
+        return view('FrontEnd.pages.index');
     }
     public function contact()
     {
-        return view('pages.contact');
+        return view('FrontEnd.pages.contact');
     }
     public function product()
     {
 
       $product = Product::OrderBy('id','desc')->get();
-        return view('pages.product.index')->with('products',$product);
+        return view('FrontEnd.pages.product.index')->with('products',$product);
 
       //
       // $image = Image::OrderBy('id','desc')->get();

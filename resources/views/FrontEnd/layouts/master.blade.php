@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Ecommerce Site</title>
-    @include('partials.styles')
+    @include('FrontEnd.partials.styles')
   </head>
   <body>
     <div class="wrapper ">
-      @include('partials.nav')
+      @include('FrontEnd.partials.nav')
 
         <!-- navbar end  -->
 
         @yield('content')
 
-          @include('partials.footer')
+          @include('FrontEnd.partials.footer')
     </div>
 
 
-    @include('partials.scripts')
+    @include('FrontEnd.partials.scripts')
   </body>
 </html>
