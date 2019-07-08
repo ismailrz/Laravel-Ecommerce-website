@@ -15,17 +15,24 @@ Route::get('/','PagesController@index')->name('index');
 Route::get('/contact','PagesController@contact')->name('contact');
 Route::get('/product','PagesController@product')->name('product');
 
-
+  //Admin Route
 Route::group([ 'prefix' => 'admin' ], function()
 {
   Route::get('/','AdminPagesController@index')->name('admin.index');
-  Route::get('/product','AdminPagesController@product_manage')->name('admin.product');
-  Route::get('/product/create','AdminPagesController@product_create')->name('admin.product.create');
-  Route::get('/product/edit/{id}','AdminPagesController@product_edit')->name('admin.product.edit');
+
+  //product Route
+
+  Route::group([ 'prefix' => 'product' ], function()
+  {
+  Route::get('/','AdminProductController@index')->name('admin.product');
+  Route::get('/create','AdminProductController@create')->name('admin.product.create');
+  Route::get('/edit/{id}','AdminProductController@edit')->name('admin.product.edit');
 
 
-  Route::post('/product/store','AdminPagesController@product_store')->name('admin.product.store');
-  Route::post('/product/update/{id}','AdminPagesController@product_update')->name('admin.product.update');
+  Route::post('/store','AdminProductController@store')->name('admin.product.store');
+  Route::post('/update/{id}','AdminProductController@update')->name('admin.product.update');
+  Route::post('/delete/{id}','AdminProductController@delete')->name('admin.product.delete');
+  });
 });
 
 
