@@ -17,7 +17,7 @@
                     <div class="row">
                       <?php foreach ($products as $product): ?>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                           <div class="card" >
                           <!-- <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'samsung.png')}}" alt="Card image"> -->
 

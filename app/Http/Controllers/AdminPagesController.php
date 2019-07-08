@@ -23,6 +23,20 @@ class AdminPagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function product_manage()
+    {
+        $product = Product::OrderBy('id','desc')->get();
+        return view('admin.pages.product.index')->with('products',$product);
+    }
+
+
+    public function product_edit($id)
+    {
+        $product = Product::find($id);
+        return view('admin.pages.product.edit')->with('product',$product);
+    }
+
+
     public function product_create()
     {
         return view('admin.pages.product.create');
@@ -74,7 +88,7 @@ class AdminPagesController extends Controller
         // }
 
         // Multiple Image Insert into Database
-        
+
         if (count($request->image) > 0) {
             foreach ($request->image as $image) {
 
@@ -97,7 +111,73 @@ class AdminPagesController extends Controller
             }
         }
 
-        return redirect()->route('admin.product.create');
+        return redirect()->route('admin.product');
+    }
+
+    public function product_update(Request $request, $id)
+    {
+        $request->validate([
+            'title'         => 'required|max:150',
+            'description'     => 'required',
+            'price'             => 'required|numeric',
+            'quantity'             => 'required|numeric',
+        ]);
+
+        $product = Product::find($id);
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+
+
+        $product->slug = str_slug($product->title);
+        $product->category_id = 1;
+        $product->brand_id = 1;
+        $product->admin_id = 1;
+        $product->save();
+
+
+        //ProductImage Model insert  single image
+
+        // if ($request->hasFile('product_image')) {
+        //   //insert that image
+        //   $image = $request->file('product_image');
+        //   $img = time() . '.'. $image->getClientOriginalExtension();
+        //   $location = public_path('images/products/' .$img);
+        //   Image::make($image)->save($location);
+        //
+        //   $product_image = new ProductImage;
+        //   $product_image->product_id = $product->id;
+        //   $product_image->image = $img;
+        //   $product_image->save();
+        // }
+
+        // Multiple Image Insert into Database
+
+        if (count($request->image) > 0) {
+            foreach ($request->image as $image) {
+
+                //insert that image
+                //$image = $request->file('product_image');
+
+                // Insert into storage
+                $img = time() . '.'. $image->getClientOriginalExtension();
+                $location = public_path('images/products/' .$img);
+                Image::make($image)->save($location);
+
+
+                  //Insert into table
+                $product_image = new Product_Image;
+
+                $product_image->product_id = $product->id;
+                $product_image->image = $img;
+                $product_image->save();
+
+            }
+        }
+
+        return redirect()->route('admin.product');
     }
 
 
