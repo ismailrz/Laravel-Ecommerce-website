@@ -14,7 +14,7 @@
           <a class="nav-link" href="{{Route('index')}}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{Route('product')}}">Product</a>
+          <a class="nav-link" href="{{Route('products')}}">Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{Route('contact')}}">Contact</a>

@@ -12,15 +12,15 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('FrontEnd.pages.index');
-    }
+    // public function index()
+    // {
+    //     return view('FrontEnd.pages.index');
+    // }
     public function contact()
     {
         return view('FrontEnd.pages.contact');
     }
-    public function product()
+    public function index()
     {
 
       $product = Product::OrderBy('id','desc')->get();

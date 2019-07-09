@@ -108,6 +108,7 @@ class ProductsController extends Controller
             }
         }
 
+        Session()->flash('success','A new Product has added successfullY!!');
         return redirect()->route('admin.product');
     }
 
@@ -173,7 +174,7 @@ class ProductsController extends Controller
 
             }
         }
-
+        Session()->flash('success','Product has updated successfullY!!');
         return redirect()->route('admin.product');
     }
 
