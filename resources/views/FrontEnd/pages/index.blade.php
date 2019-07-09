@@ -12,73 +12,8 @@
 
                 <div class="col-md-8">
                   <div class="wedget">
-                    <h3>Featured Product</h3>
-                    <div class="row">
-
-                      <div class="col-md-3">
-                        <div class="card" >
-                          <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'Samsung.png')}}" alt="Card image">
-                          <div class="card-body">
-                            <h4 class="card-title">Samsung</h4>
-                            <p class="card-text">Taka-10000</p>
-                            <a href="#" class="btn btn-outline-warning">Add to cart</a>
-                          </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="card" >
-                          <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'Samsung.png')}}" alt="Card image">
-                          <div class="card-body">
-                            <h4 class="card-title">Samsung</h4>
-                            <p class="card-text">Taka-10000</p>
-                            <a href="#" class="btn btn-outline-warning">Add to cart</a>
-                          </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="card" >
-                          <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'Samsung.png')}}" alt="Card image">
-                          <div class="card-body">
-                            <h4 class="card-title">Samsung</h4>
-                            <p class="card-text">Taka-10000</p>
-                            <a href="#" class="btn btn-outline-warning">Add to cart</a>
-                          </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="card" >
-                          <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'Samsung.png')}}" alt="Card image">
-                          <div class="card-body">
-                            <h4 class="card-title">Samsung</h4>
-                            <p class="card-text">Taka-10000</p>
-                            <a href="#" class="btn btn-outline-warning">Add to cart</a>
-                          </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="card" >
-                          <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'Samsung.png')}}" alt="Card image">
-                          <div class="card-body">
-                            <h4 class="card-title">Samsung</h4>
-                            <p class="card-text">Taka-10000</p>
-                            <a href="#" class="btn btn-outline-warning">Add to cart</a>
-                          </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="card" >
-                          <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'Samsung.png')}}" alt="Card image">
-                          <div class="card-body">
-                            <h4 class="card-title">Samsung</h4>
-                            <p class="card-text">Taka-10000</p>
-                            <a href="#" class="btn btn-outline-warning">Add to cart</a>
-                          </div>
-                          </div>
-                      </div>
-
-
-
-
+                    <h3> All Products</h3>
+                    @include('FrontEnd.pages.product.partials.all_product')
                     </div>
                   </div>
                   <div class="wedget">

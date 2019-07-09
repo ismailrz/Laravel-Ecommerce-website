@@ -13,10 +13,18 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('FrontEnd.pages.index');
-    }
+     public function index()
+     {
+
+       $product = Product::OrderBy('id','desc')->paginate(5);
+         return view('FrontEnd.pages.index')->with('products',$product);
+
+       //
+       // $image = Image::OrderBy('id','desc')->get();
+       //   return view('pages.product.index')->with('images',$image);
+
+
+     }
     public function contact()
     {
         return view('FrontEnd.pages.contact');

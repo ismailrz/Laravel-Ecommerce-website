@@ -23,7 +23,7 @@ class ProductsController extends Controller
     public function index()
     {
 
-      $product = Product::OrderBy('id','desc')->get();
+      $product = Product::OrderBy('id','desc')->paginate(5);
         return view('FrontEnd.pages.product.index')->with('products',$product);
 
       //
