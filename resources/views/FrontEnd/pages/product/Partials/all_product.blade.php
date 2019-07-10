@@ -8,8 +8,7 @@
         <?php $i =  1; ?>
         <?php foreach ($product->images as $image): ?>
           <?php if ($i>0): ?>
-            <img class="card-img-top feature-img" src="{{asset('Images/Products/'.$image->image)}}" alt="Card image">
-
+            <a href="{{Route('product.show',$product->slug)}}"><img class="card-img-top feature-img" src="{{asset('Images/Products/'.$image->image)}}" alt="{{$product->title}}"></a>
           <?php endif; ?>
 
           <?php $i--; ?>
@@ -17,9 +16,9 @@
 
 
         <div class="card-body">
-          <h4 class="card-title">{{$product->title}}</h4>
-          <p class="card-text">{{$product->price}} Taka.</p>
-          <a href="#" class="btn btn-outline-warning">Add to cart</a>
+          <a href="{{Route('product.show',$product->slug)}}"><h4 class="card-title">{{$product->title}}</h4></a>
+          <a href="{{Route('product.show',$product->slug)}}"><p class="card-text">{{$product->price}} Taka.</p></a>
+          <a href="{{Route('product.show',$product->slug)}}"" class="btn btn-outline-warning">Add to cart</a>
         </div>
         </div>
     </div>

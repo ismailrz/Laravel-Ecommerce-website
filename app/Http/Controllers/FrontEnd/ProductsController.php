@@ -60,9 +60,14 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+      $products = Product::Where('slug', $slug)->first();
+      if(!is_null($products)){
+        return view('FrontEnd.pages.product.show',compact('products'));
+      }
+      Session()->flash('errors', 'Sorry !! There is no Product for this URL!');
+        return redirect()->Route('Products');
     }
 
     /**

@@ -26,6 +26,7 @@
           <div class="form-group">
             <label for="exampeOfDescription">Parent Category</label>
             <select  class="form-control" name ="parent_id">
+              <option value="">Please select a primary Category</option>
               <?php foreach ($main_categories as $category): ?>
                 <option value="{{$category->id}}">{{$category->name}}</option>
               <?php endforeach; ?>

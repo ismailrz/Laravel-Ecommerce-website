@@ -1,11 +1,20 @@
 <div class="list-group">
-<a href="#" class="list-group-item list-group-item-action">Action item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-success">Success item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Secondary item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-info">Info item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-warning">Warning item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-danger">Danger item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-primary">Primary item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-light">Light item</a>
+
+
+  <?php foreach (App\Models\Category::orderBy('name','asc')->where('parent_id', NULL)->get() as $parent): ?>
+    <a href="#collapseExample-{{$parent->id}}"data-toggle="collapse" class="list-group-item list-group-item-action list-group-item-success" >
+      <img src="{{asset('Images/categories/'.$parent->image)}}" alt="Image" width="50">
+      {{ $parent->name}}
+    </a>
+    <div class="collapse" id="collapseExample-{{$parent->id}}">
+      <div class="card card-body">
+        <?php foreach (App\Models\Category::orderBy('name','asc')->where('parent_id', $parent->id)->get() as $child): ?>
+          <a href="#collapseExample-{{$parent->id}}"data-toggle="collapse" class="list-group-item list-group-item-action list-group-item-success" >
+            <img src="{{asset('Images/categories/'.$child->image)}}" alt="Image" width="30">
+            {{ $child->name}}
+          </a>
+        <?php endforeach; ?>
+   </div>
+    </div>
+  <?php endforeach; ?>
 </div>

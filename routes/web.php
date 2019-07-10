@@ -13,6 +13,7 @@
 
 Route::get('/','FrontEnd\PagesController@index')->name('index');
 Route::get('/contact','FrontEnd\PagesController@contact')->name('contact');
+Route::get('/search','FrontEnd\PagesController@search')->name('search');
 
 
 // Produt Routes

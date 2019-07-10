@@ -25,6 +25,20 @@ class PagesController extends Controller
 
 
      }
+     public function search(Request $request)
+     {
+       $search = $request->search;
+
+       $products = Product::orWhere('title', 'like', '%'.$search.'%')
+                          ->orWhere('description', 'like', '%'.$search.'%')
+                          ->orWhere('slug', 'like', '%'.$search.'%')
+                          ->orWhere('price', 'like', '%'.$search.'%')
+                          ->orWhere('quantity', 'like', '%'.$search.'%')
+                          ->OrderBy('id','desc')
+                          ->paginate(5);
+         return view('FrontEnd.pages.product.search', compact('search','products'));
+
+     }
     public function contact()
     {
         return view('FrontEnd.pages.contact');
