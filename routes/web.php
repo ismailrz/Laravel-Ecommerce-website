@@ -22,7 +22,7 @@ Route::group([ 'prefix' => 'products' ], function()
     // Product Routes
   Route::get('/','FrontEnd\ProductsController@index')->name('products');
   Route::get('/{slug}','FrontEnd\ProductsController@show')->name('product.show');
-  Route::get('/search','FrontEnd\ProductsController@search')->name('product.search');
+  Route::get('/new/search','FrontEnd\ProductsController@search')->name('product.search');
 
     //category Route
 
@@ -84,3 +84,7 @@ Route::group([ 'prefix' => 'admin' ], function()
 //     Route::get('dashboard', function() {} );
 //     Route::get('settings', function() {} );
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
