@@ -5,6 +5,7 @@
       <div class="card" >
       <!-- <img class="card-img-top feature-img" src="{{asset('Images/Products/'.'samsung.png')}}" alt="Card image"> -->
 
+    
         <?php $i =  1; ?>
         <?php foreach ($product->images as $image): ?>
           <?php if ($i>0): ?>

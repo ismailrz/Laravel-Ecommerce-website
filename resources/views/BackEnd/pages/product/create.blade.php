@@ -31,6 +31,27 @@
             <label for="exampleInputEmail1">Quantity</label>
             <input type="number" class="form-control" id="exampleInputEmail1"name="quantity" aria-describedby="emailHelp" placeholder="Enter quantity">
           </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">select Category</label>
+            <select class="form-control" name="category_id">
+              <option value="">Please select category</option>
+              <?php foreach (App\Models\Category::orderBy('name','asc')->where('parent_id', NULL)->get() as $parent): ?>
+                <option value="{{$parent->id}}">{{$parent->name}}</option>
+                <?php foreach (App\Models\Category::orderBy('name','asc')->where('parent_id', $parent->id)->get() as $child): ?>
+                  <option value="{{$child->id}}">--------->{{$child->name}}</option>
+                <?php endforeach; ?>
+              <?php endforeach; ?>
+            </select>
+            </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">select Brand</label>
+            <select class="form-control" name="brand_id">
+              <option value="">Please select brand</option>
+              <?php foreach (App\Models\Brand::orderBy('name','asc')->get() as $brand): ?>
+                <option value="{{$brand->id}}">{{$brand->name}}</option>
+              <?php endforeach; ?>
+            </select>
+            </div>
 
 
               <div class="form-group">

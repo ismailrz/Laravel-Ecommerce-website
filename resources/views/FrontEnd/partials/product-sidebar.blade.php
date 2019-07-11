@@ -9,7 +9,14 @@
     <div class="collapse" id="collapseExample-{{$parent->id}}">
       <div class="card card-body">
         <?php foreach (App\Models\Category::orderBy('name','asc')->where('parent_id', $parent->id)->get() as $child): ?>
-          <a href="#collapseExample-{{$parent->id}}"data-toggle="collapse" class="list-group-item list-group-item-action list-group-item-success" >
+          <a href="{{Route('categories.show',$child->id)}}" class="list-group-item list-group-item-action list-group-item-success
+            if(Route::is('categories.show')){
+              if($child->id == $category->id){
+                active
+              }
+            }
+            " >
+
             <img src="{{asset('Images/categories/'.$child->image)}}" alt="Image" width="30">
             {{ $child->name}}
           </a>

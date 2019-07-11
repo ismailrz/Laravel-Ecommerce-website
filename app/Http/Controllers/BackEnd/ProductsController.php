@@ -49,9 +49,11 @@ class ProductsController extends Controller
     {
         $request->validate([
             'title'         => 'required|max:150',
-            'description'     => 'required',
-            'price'             => 'required|numeric',
-            'quantity'             => 'required|numeric',
+            'description'   => 'required',
+            'price'         => 'required|numeric',
+            'quantity'      => 'required|numeric',
+            'category_id'   => 'required|numeric',
+            'brand_id'      => 'required|numeric',
         ]);
 
         $product = New Product;
@@ -60,11 +62,9 @@ class ProductsController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->quantity = $request->quantity;
-
-
         $product->slug = str_slug($product->title);
-        $product->category_id = 1;
-        $product->brand_id = 1;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         $product->admin_id = 1;
         $product->save();
 
@@ -115,10 +115,12 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'         => 'required|max:150',
-            'description'     => 'required',
-            'price'             => 'required|numeric',
-            'quantity'             => 'required|numeric',
+            'title'            => 'required|max:150',
+            'description'      => 'required',
+            'price'            => 'required|numeric',
+            'quantity'         => 'required|numeric',
+            'category_id'      => 'required|numeric',
+            'brand_id'         => 'required|numeric',
         ]);
 
         $product = Product::find($id);
@@ -127,11 +129,9 @@ class ProductsController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->quantity = $request->quantity;
-
-
         $product->slug = str_slug($product->title);
-        $product->category_id = 1;
-        $product->brand_id = 1;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         $product->admin_id = 1;
         $product->save();
 

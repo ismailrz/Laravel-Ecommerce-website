@@ -16,12 +16,23 @@ Route::get('/contact','FrontEnd\PagesController@contact')->name('contact');
 Route::get('/search','FrontEnd\PagesController@search')->name('search');
 
 
-// Produt Routes
+// FrontEnd  Routes
+Route::group([ 'prefix' => 'products' ], function()
+{
+    // Product Routes
+  Route::get('/','FrontEnd\ProductsController@index')->name('products');
+  Route::get('/{slug}','FrontEnd\ProductsController@show')->name('product.show');
+  Route::get('/search','FrontEnd\ProductsController@search')->name('product.search');
 
-Route::get('/products','FrontEnd\ProductsController@index')->name('products');
-Route::get('/product/{slug}','FrontEnd\ProductsController@show')->name('product.show');
+    //category Route
 
-  //Admin Route ALL Admin
+    Route::get('categories','FrontEnd\CategoriesController@index')->name('categories.index');
+    Route::get('categories/{id}','FrontEnd\CategoriesController@show')->name('categories.show');
+
+  });
+
+
+  //Admin BackEnd Route ALL Admin
 
 Route::group([ 'prefix' => 'admin' ], function()
 {
@@ -51,6 +62,19 @@ Route::group([ 'prefix' => 'admin' ], function()
   Route::post('/update/{id}','BackEnd\CategoriesController@update')->name('admin.category.update');
   Route::post('/delete/{id}','BackEnd\CategoriesController@delete')->name('admin.category.delete');
   });
+
+  //Brands Route
+  Route::group([ 'prefix' => 'brands' ], function()
+  {
+  Route::get('/','BackEnd\BrandsController@index')->name('admin.brands');
+  Route::get('/create','BackEnd\BrandsController@create')->name('admin.brand.create');
+  Route::get('/edit/{id}','BackEnd\BrandsController@edit')->name('admin.brand.edit');
+
+  Route::post('/store','BackEnd\BrandsController@store')->name('admin.brand.store');
+  Route::post('/update/{id}','BackEnd\BrandsController@update')->name('admin.brand.update');
+  Route::post('/delete/{id}','BackEnd\BrandsController@delete')->name('admin.brand.delete');
+  });
+
 });
 
 

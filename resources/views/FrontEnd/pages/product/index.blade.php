@@ -14,7 +14,12 @@
                 <div class="col-md-8">
                   <div class="wedget">
                     <h3> All Products</h3>
-                    @include('FrontEnd.pages.product.partials.all_product')
+                    @if($products->count()>0)
+                       @include('FrontEnd.pages.product.partials.all_product')
+                     @else
+                      <div class="alert alert-warning"> Product Not Found !! </div>
+                       @endif
+
                   </div>
                   <div class="wedget">
 

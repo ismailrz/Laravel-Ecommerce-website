@@ -19,6 +19,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{Route('admin.product')}}">Manage Product</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{Route('admin.product.create')}}">Create Produt</a></li>
         </ul>
+        </div>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">Manage Categories</span><i class="menu-arrow"></i></a>
       <div class="collapse" id="category-pages">
@@ -28,5 +29,14 @@
         </ul>
       </div>
     </li>
-  </ul>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#brand-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">Manage Brands</span><i class="menu-arrow"></i></a>
+      <div class="collapse" id="brand-pages">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{{Route('admin.brands')}}">Manage Brand</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{Route('admin.brand.create')}}">Create Brand</a></li>
+        </ul>
+      </div>
+    </li>
+        </ul>
 </nav>

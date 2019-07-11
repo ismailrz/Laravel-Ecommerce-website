@@ -13,14 +13,19 @@
 
                 <div class="col-md-8">
                   <div class="wedget">
-                    <h3> Searched Products for
-                      <span class="badge badge-primary">{{$search}}</span>
-                    </h3>
-                    @if($products->count()>0)
-                       @include('FrontEnd.pages.product.partials.all_product')
-                     @else
-                      <div class="alert alert-warning"> Product Not Found !! </div>
-                     @endif
+                    <h3> All Products in <span class="badge badge-info">{{$category->name}}</span>
+
+                      <?php
+                      $products = $category->products()->paginate(5);
+                       ?>
+
+                     </h3>
+                      @if($products->count()>0)
+                         @include('FrontEnd.pages.product.partials.all_product')
+                       @else
+                        <div class="alert alert-warning"> Product Not Found !! </div>
+                         @endif
+
 
                   </div>
                   <div class="wedget">
