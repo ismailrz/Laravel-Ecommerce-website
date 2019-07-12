@@ -10,6 +10,7 @@
   <body>
     <div class="wrapper ">
       @include('FrontEnd.partials.nav')
+      @include('FrontEnd.partials.message')
 
         <!-- navbar end  -->
 

@@ -31,6 +31,9 @@ Route::group([ 'prefix' => 'products' ], function()
 
   });
 
+  // User Verification Routes
+  Route::get('/token/{token}','FrontEnd\VerificationController@verify')->name('user.verification');
+
 
   //Admin BackEnd Route ALL Admin
 
