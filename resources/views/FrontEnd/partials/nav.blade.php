@@ -31,6 +31,18 @@
       </ul>
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('carts') }}">
+              <button type="submit" class="btn btn-danger">
+                <span class="mt-1">Cart</span>
+                <span class="badge badge-warning">
+                  {{App\Models\Cart::totalItems()}}
+                </span>
+              </button>
+            </a>
+        </li>
+
           <!-- Authentication Links -->
           @guest
               <li class="nav-item">

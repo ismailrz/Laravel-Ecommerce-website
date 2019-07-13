@@ -40,8 +40,14 @@ Route::group([ 'prefix' => 'products' ], function()
   Route::get('/dashboard','FrontEnd\UsersController@dashboard')->name('user.dashboard');
   Route::get('/profile','FrontEnd\UsersController@profile')->name('user.profile');
   Route::post('/profile/update','FrontEnd\UsersController@profileUpdate')->name('user.profile.update');
+  });
 
-
+  // Cart Route
+  Route::group([ 'prefix' => 'carts' ], function()
+  {
+  // User Verification Routes
+  Route::get('/','FrontEnd\CartsController@index')->name('carts');
+  Route::post('/store','FrontEnd\CartsController@store')->name('carts.store');
   });
 
   //Admin BackEnd Route ALL Admin
