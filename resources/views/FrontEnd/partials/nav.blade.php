@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg nav-bg  bg-light">
 
   <div class="container">
@@ -43,7 +44,9 @@
           @else
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->first_name }} {{ Auth::user()->last_nameS }} <span class="caret"></span>
+                    <img src="{{asset('Images\Defaults\ismail.jpg')}}" class="img rounded-circle" width="30">
+
+                      {{ Auth::user()->first_name }} {{ Auth::user()->last_name  }} <span class="caret"></span>
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
