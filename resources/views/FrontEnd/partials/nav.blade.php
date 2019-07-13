@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg nav-bg  bg-light">
+<nav class="navbar navbar-expand-lg  bg-light">
 
   <div class="container">
 
@@ -50,6 +50,11 @@
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                      <a class="dropdown-item" href="{{ route('user.dashboard') }}">
+                          {{ __('My Dashboard') }}
+                      </a>
+
                       <a class="dropdown-item" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">

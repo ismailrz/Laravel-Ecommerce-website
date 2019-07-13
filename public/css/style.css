@@ -1,3 +1,13 @@
+html{
+  height: 100%;
+}
+
+body{
+  position: relative;
+  min-height: 100%;
+}
+
+
 //css offer bootstrap
 
 
@@ -5,7 +15,9 @@
 .carousel-background{
   background: #dcf4fc;
 }
-
+.bg-light {
+    background-color: #02aadd!important;
+}
 .nav-bg {
     background: #2684c9;
 }
@@ -14,6 +26,10 @@
 .margin-top-20{
 
   margin-top: 20px
+}
+
+.pointer{
+  cursor: pointer;
 }
 .feature-img{
 
@@ -24,4 +40,8 @@
   padding: 10px;
   margin-top: 200px;
   background :#2684C9;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

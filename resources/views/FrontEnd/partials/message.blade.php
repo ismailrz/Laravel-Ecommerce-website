@@ -1,5 +1,5 @@
 @if ($errors->any())
-<div class="container">
+<div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="alert alert-danger">
@@ -17,7 +17,7 @@
 
 
 @if(Session::has('success'))
-<div class="container">
+<div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="alert alert-success">
@@ -28,11 +28,22 @@
   </div>
 @endif
 @if(Session::has('errors'))
-<div class="container">
+<div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="alert alert-danger">
             <p> {{ Session::get('errors') }}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+@endif
+@if(Session::has('Sticky_error'))
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="alert alert-danger">
+            <p> {{ Session::get('Sticky_error') }}</p>
           </div>
         </div>
       </div>

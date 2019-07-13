@@ -55,17 +55,20 @@ class LoginController extends Controller
           if(Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password],$request->remember)){
             return redirect()->intended(Route('index'));
           }else {
+            Session()->flash('Sticky_error','Invalid Login !! ');
+            return back();
+          }
+        }
+          else {
             if (!is_null($user)) {
               $user->notify(new VerifyRegistration($user));
               Session()->flash('success','A  new confirmation email has send to you. Please check and confirm your email! ');
               return redirect('/');
             }else {
-              Session()->flash('errors','Please Login first !! ');
+              Session()->flash('Sticky_error','Please Login first !! ');
               return redirect()->Route('login');
             }
           }
 
         }
-
-    }
 }
