@@ -16,7 +16,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-        //
+        return view('FrontEnd.pages.carts');
     }
 
     /**
@@ -103,7 +103,16 @@ class CartsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cart = Cart::find($id);
+        if(!is_null($cart)){
+          $cart->product_quantity = $request->product_quantity;
+
+          $cart->save();
+        }else {
+          return redirect()->Route('carts');
+        }
+        Session()->flash('success','Cart item has updated successfully !!');
+        return back();
     }
 
     /**
@@ -112,8 +121,15 @@ class CartsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+      $cart = Cart::find($id);
+      if(!is_null($cart)){
+        $cart->delete();
+      }else {
+        return redirect()->Route('carts');
+      }
+      Session()->flash('success','Cart item has deleted  successfully!!');
+      return back();
     }
 }

@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg  bg-light">
+<nav class="navbar navbar-expand-lg navbar-light   bg-light">
 
   <div class="container">
 

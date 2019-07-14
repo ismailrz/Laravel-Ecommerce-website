@@ -48,6 +48,8 @@ Route::group([ 'prefix' => 'products' ], function()
   // User Verification Routes
   Route::get('/','FrontEnd\CartsController@index')->name('carts');
   Route::post('/store','FrontEnd\CartsController@store')->name('carts.store');
+  Route::post('/update/{id}','FrontEnd\CartsController@update')->name('carts.update');
+  Route::post('/delete/{id}','FrontEnd\CartsController@delete')->name('carts.delete');
   });
 
   //Admin BackEnd Route ALL Admin

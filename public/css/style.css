@@ -16,10 +16,7 @@ body{
   background: #dcf4fc;
 }
 .bg-light {
-    background-color: #02aadd!important;
-}
-.nav-bg {
-    background: #2684c9;
+    background: #da2626!important;
 }
 
 
@@ -39,7 +36,7 @@ body{
 .footer-bottom{
   padding: 10px;
   margin-top: 200px;
-  background :#2684C9;
+  background :#da2626;
   position: absolute;
   left: 0;
   right: 0;
