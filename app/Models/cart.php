@@ -38,7 +38,6 @@ class cart extends Model
       $carts = Cart::orWhere('ip_address',Request()->ip())->get();
     }
 
-    return $carts;
   }
   /**
   * total items of a cart

@@ -21,5 +21,6 @@
 
 
     @include('FrontEnd.partials.scripts')
+    @yield('scripts')
   </body>
 </html>

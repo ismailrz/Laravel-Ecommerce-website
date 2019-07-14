@@ -8,6 +8,9 @@ body{
   padding-bottom: 5rem;
 }
 
+.hidden{
+  display: none;
+}
 
 //css offer bootstrap
 
