@@ -66,8 +66,8 @@
         </tbody>
       </table>
       <div class="float-right">
-        <a href="#" class="btn btn-info btn-lg">Continue Shopping...</a>
-        <a href="#" class="btn btn-warning btn-lg">Checkout</a>
+        <a href="{{Route('products')}}" class="btn btn-info btn-lg">Continue Shopping...</a>
+        <a href="{{Route('checkouts')}}" class="btn btn-warning btn-lg">Checkout</a>
       </div>
     </div>
 @endsection

@@ -51,6 +51,13 @@ Route::group([ 'prefix' => 'products' ], function()
   Route::post('/update/{id}','FrontEnd\CartsController@update')->name('carts.update');
   Route::post('/delete/{id}','FrontEnd\CartsController@delete')->name('carts.delete');
   });
+  // Checkout Route
+  Route::group([ 'prefix' => 'checkouts' ], function()
+  {
+  // User Verification Routes
+  Route::get('/','FrontEnd\CheckoutsController@index')->name('checkouts');
+  Route::post('/store','FrontEnd\CheckoutsController@store')->name('checkouts.store');
+  });
 
   //Admin BackEnd Route ALL Admin
 
