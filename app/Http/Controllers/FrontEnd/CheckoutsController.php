@@ -54,7 +54,7 @@ class CheckoutsController extends Controller
         $order->payment_id = $payment_id  = Payment::where('short_name',$request->payment_method_id)->first()->id;
         $order->save();
 
-        foreach (Cart::totalICarts() as $cart) {
+        foreach (Cart::totalCarts() as $cart) {
           $cart->order_id = $order->id;
           $cart->save();
         }

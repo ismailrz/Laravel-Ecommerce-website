@@ -65,6 +65,12 @@ Route::group([ 'prefix' => 'admin' ], function()
 {
   Route::get('/','BackEnd\PagesController@index')->name('admin.index');
 
+
+    //Admin Login Routes
+  Route::get('/login','Auth\Admin\LoginController@showLoginForm')->name('admin.login');
+  Route::post('/login/submit','Auth\Admin\LoginController@login')->name('admin.login.submit');
+  Route::post('/logout','Auth\Admin\LoginController@logout')->name('admin.logout');
+
   //product Route
   Route::group([ 'prefix' => 'product' ], function()
   {

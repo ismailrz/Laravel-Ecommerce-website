@@ -56,5 +56,11 @@
         </ul>
       </div>
     </li>
+    <li class="nav-item">
+      <form class="form-control ml-3" action="{{Route('admin.logout')}}" method="post">
+        @csrf
+        <button type="submit" class="btn btn-danger">Log Out</button>
+      </form>
+    </li>
         </ul>
 </nav>

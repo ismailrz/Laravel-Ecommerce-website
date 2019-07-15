@@ -21,7 +21,7 @@
 
       <tbody>
         <?php $loop = 1; $Total_price = 0; ?>
-        <?php foreach (App\Models\Cart::totalICarts() as $cart): ?>
+        <?php foreach (App\Models\Cart::totalCarts() as $cart): ?>
           <tr>
             <td>{{$loop++}}</td>
             <td>

@@ -28,7 +28,7 @@ class cart extends Model
   * total items of a cart
   * retrun integer total items
   */
-  public static function totalICarts()
+  public static function totalCarts()
   {
     if(Auth::check()){
       $carts = Cart::orWhere('user_id',Auth::id())
@@ -37,7 +37,7 @@ class cart extends Model
     }else {
       $carts = Cart::orWhere('ip_address',Request()->ip())->get();
     }
-
+      return $carts;
   }
   /**
   * total items of a cart

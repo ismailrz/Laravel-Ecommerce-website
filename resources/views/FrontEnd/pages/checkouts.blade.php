@@ -9,7 +9,7 @@
           <hr>
             <div class="row">
               <div class="col-md-7 border-right">
-            <?php foreach (App\Models\Cart::totalICarts() as $cart): ?>
+            <?php foreach (App\Models\Cart::totalCarts() as $cart): ?>
               <p>
                 {{$cart->product->title}} --- {{$cart->product_quantity}} items--- {{$cart->product->price}} Taka
               </p>
@@ -18,7 +18,7 @@
           </div>
           <div class="col-md-5">
             <?php $Total_price = 0; ?>
-            <?php foreach (App\Models\Cart::totalICarts() as $cart): ?>
+            <?php foreach (App\Models\Cart::totalCarts() as $cart): ?>
                 <?php $Total_price+= $cart->product->price *$cart->product_quantity; ?>
 
             <?php endforeach; ?>
@@ -165,6 +165,12 @@
 
      $payment_method = $("#payments").val();
 
+    if ($payment_method == "") {
+      $("#payments_cash_in").addClass('hidden');
+      $("#payments_Bkash").addClass('hidden');
+      $("#payments_Rocket").addClass('hidden');
+      $("#transaction_id").addClass('hidden');
+    }
     if ($payment_method == "cash_in") {
       $("#payments_cash_in").removeClass('hidden');
       $("#payments_Bkash").addClass('hidden');
