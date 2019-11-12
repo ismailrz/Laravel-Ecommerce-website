@@ -14,10 +14,10 @@ class CreateDivisionsTable extends Migration
     public function up()
     {
         Schema::create('divisions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('name');
             $table->unsignedTinyInteger('priority')->default(1);
-          
+
             $table->timestamps();
         });
     }

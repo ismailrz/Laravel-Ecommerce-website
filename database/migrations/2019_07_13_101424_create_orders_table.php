@@ -14,9 +14,9 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('payment_id')->unsigned();
+            $table->bigIncrements('id')->unsigned();
+            $table->unsignedInteger('user_id')->unsigned();
+            $table->integer('payment_id')->unsigned();
             $table->string('ip_address')->nullable();
             $table->string('name');
             $table->string('mobile_no');
@@ -32,9 +32,9 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')
             ->references('id')->on('users')
             ->onDelete('cascade');
-            $table->foreign('payment_id')
-            ->references('id')->on('payments')
-            ->onDelete('cascade');
+//            $table->foreign('payment_id')
+//            ->references('id')->on('payments')
+//            ->onDelete('cascade');
         });
     }
 
